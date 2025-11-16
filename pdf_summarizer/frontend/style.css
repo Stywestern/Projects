@@ -1,0 +1,127 @@
+/* General Font */
+html, body {
+      height: 100%;
+      margin: 0;
+      background-color: #f5f6fa;
+      font-family: Arial, sans-serif;
+    }
+
+/* Main Container */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* The row of the buttons */
+.controls {
+  display: flex;
+  align-items: baseline; 
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.drop-zone {
+  border: 2px dashed #0078d7;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.drop-zone.dragover {
+  background-color: #e6f0ff;
+  border-color: #005bb5;
+}
+
+.drop-text {
+  display: block;
+}
+
+.file-name {
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.controls input[type="file"] {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+
+}
+
+.controls select {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.controls button {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: none;
+  background-color: #0078d7;
+  color: white;
+  cursor: pointer;
+}
+
+/* Headers and Buttons */
+h1 {
+    margin-bottom: 1rem;
+}
+
+input[type="file"] {
+    margin-bottom: 1rem;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    background-color: #0078d7;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #005fa3;
+}
+
+/* Progress Bars */
+#progress-container {
+    width: 100%;
+    max-width: 600px;
+    height: 20px;
+    background: #ddd;
+    border-radius: 10px;
+    margin-top: 1rem;
+    overflow: hidden;
+    display: none;
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #0078d7;
+    transition: width 0.2s ease;
+}
+
+#output {
+    width: 100%;
+    max-width: 800px;
+    margin-top: 1rem;
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PDF Summarizer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <h1>PDF Summarizer</h1>
+
+    <div class="controls">
+      <div id="drop-zone" class="drop-zone">
+        <span class="drop-text">Click or drag PDF here</span>
+        <span class="file-name"></span>
+      </div>
+
+      <input type="file" id="fileInput" multiple style="display:none;" />
+
+      <select id="model">
+        <option value="t5-small" selected>T5 Small (fast, lower quality)</option>
+        <option value="t5-base">T5 Base (better quality)</option>
+        <option value="api">External API (Gemini 1.5 / No Credit Doesn't Work)</option>
+      </select>
+
+      <button id="uploadBtn">Summarize</button>
+    </div>
+
+    <div id="progress-container">
+      <div id="progress-bar"></div>
+    </div>
+    <div id="time-estimate" style="margin-top: 0.5rem; font-size: 0.9rem; color: #555;"></div>
+
+    <div id="output"></div>
+
+    <div id="download-buttons" style="margin-top: 1rem;">
+      <button id="downloadSummary">Download Summary</button>
+    </div>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
+
