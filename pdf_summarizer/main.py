@@ -21,6 +21,5 @@ app.add_middleware(
 ## Routes
 app.include_router(upload.router)
 
-
 ## Frontend Send
 app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")

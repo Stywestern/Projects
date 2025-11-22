@@ -6,3 +6,5 @@ node_modules/
 .env
 *.log
 uploads/**
+.pdf_summarizer/
+mistral-7b-v0.1.Q4_K_M.gguf

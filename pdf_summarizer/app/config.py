@@ -1,11 +1,15 @@
 import torch
 import os
 
-MODEL_NAME = "t5-small"
-CHUNK_TOKENS = 450
-CHUNK_OVERLAP = 50
-SUMMARY_MAX_LENGTH = 200
-SUMMARY_MIN_LENGTH = 50
+CHUNK_PROFILES = {
+    "t5-small":      {"max_tokens": 350, "overlap": 50},
+    "bart-large-cnn": {"max_tokens": 800, "overlap": 100},
+    "mistral": {"max_tokens": 256, "overlap": 32},
+    "api":           {"max_tokens": 2000, "overlap": 0},  # API can handle large chunks
+}
+
+SUMMARY_MAX_LENGTH = 300
+SUMMARY_MIN_LENGTH = 100
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
 UPLOAD_DIR = "uploads"

@@ -9,6 +9,8 @@
 </head>
 
 <body>
+  <button id="theme-toggle" class="theme-btn">🌙 Dark Mode</button>
+
   <div class="container">
     <h1>PDF Summarizer</h1>
 
@@ -18,11 +20,12 @@
         <span class="file-name"></span>
       </div>
 
-      <input type="file" id="fileInput" multiple style="display:none;" />
+      <input type="file" id="fileInput" style="display:none;" />
 
       <select id="model">
         <option value="t5-small" selected>T5 Small (fast, lower quality)</option>
-        <option value="t5-base">T5 Base (better quality)</option>
+        <option value="bart-large-cnn">BART Large (GPU)</option>
+        <option value="mistral">Mistral LLM (GPU)</option>
         <option value="api">External API (Gemini 1.5 / No Credit Doesn't Work)</option>
       </select>
 
@@ -32,11 +35,12 @@
     <div id="progress-container">
       <div id="progress-bar"></div>
     </div>
-    <div id="time-estimate" style="margin-top: 0.5rem; font-size: 0.9rem; color: #555;"></div>
+    
+    <div id="time-estimate"></div>
 
     <div id="output"></div>
 
-    <div id="download-buttons" style="margin-top: 1rem;">
+    <div id="download-buttons">
       <button id="downloadSummary">Download Summary</button>
     </div>
   </div>

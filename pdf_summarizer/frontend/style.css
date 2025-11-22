@@ -1,127 +1,252 @@
-/* General Font */
+/* =========================================
+   1. CSS VARIABLES (Theme Colors)
+   ========================================= */
+:root {
+    --bg-color: #f5f6fa;
+    --container-bg: #ffffff;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --accent-color: #0078d7;
+    --accent-hover: #005fa3;
+    --border-color: #ddd;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --code-bg: #f4f4f4;
+}
+
+/* Dark Mode Overrides */
+body.dark-mode {
+    --bg-color: #121212;
+    --container-bg: #1e1e1e;
+    --text-primary: #e0e0e0;
+    --text-secondary: #aaaaaa;
+    --accent-color: #4dabf7;
+    --accent-hover: #339af0;
+    --border-color: #333;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    --code-bg: #2d2d2d;
+}
+
+/* =========================================
+   2. GLOBAL RESET
+   ========================================= */
+* {
+    box-sizing: border-box; /* Makes sizing easier */
+}
+
 html, body {
-      height: 100%;
-      margin: 0;
-      background-color: #f5f6fa;
-      font-family: Arial, sans-serif;
-    }
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-/* Main Container */
+/* =========================================
+   3. LAYOUT
+   ========================================= */
 .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  height: 100%;
-  padding: 2rem;
-  box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 900px; /* Limits width on big screens */
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    min-height: 100vh;
 }
 
-/* The row of the buttons */
-.controls {
-  display: flex;
-  align-items: baseline; 
-  gap: 1rem;
-  margin-bottom: 1rem;
+h1 {
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+    font-weight: 700;
+    text-align: center;
 }
 
+/* =========================================
+   4. DROP ZONE & INPUTS
+   ========================================= */
 .drop-zone {
-  border: 2px dashed #0078d7;
-  border-radius: 8px;
-  padding: 1rem;
-  text-align: center;
-  cursor: pointer;
-  position: relative;
+    width: 100%;
+    max-width: 600px;
+    background-color: var(--container-bg);
+    border: 2px dashed var(--accent-color);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
 }
 
-.drop-zone.dragover {
-  background-color: #e6f0ff;
-  border-color: #005bb5;
+.drop-zone:hover, .drop-zone.dragover {
+    background-color: rgba(0, 120, 215, 0.1); /* Subtle blue tint */
+    border-color: var(--accent-hover);
 }
 
 .drop-text {
-  display: block;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
 }
 
 .file-name {
-  display: block;
-  margin-top: 0.5rem;
-  font-weight: bold;
-  color: #333;
+    display: block;
+    margin-top: 0.8rem;
+    font-weight: bold;
+    color: var(--accent-color);
 }
 
+/* Hide the ugly default file input, rely on dropzone click */
 .controls input[type="file"] {
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: white;
+    display: none; 
+}
 
+/* =========================================
+   5. CONTROLS ROW
+   ========================================= */
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 2rem;
 }
 
 .controls select {
-  padding: 0.5rem;
-  border-radius: 4px;
-  border: 1px solid #ccc;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background-color: var(--container-bg);
+    color: var(--text-primary);
+    font-size: 1rem;
+    cursor: pointer;
+    flex-grow: 1;
 }
 
 .controls button {
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  border: none;
-  background-color: #0078d7;
-  color: white;
-  cursor: pointer;
-}
-
-/* Headers and Buttons */
-h1 {
-    margin-bottom: 1rem;
-}
-
-input[type="file"] {
-    margin-bottom: 1rem;
-}
-
-button {
-    padding: 0.5rem 1rem;
-    background-color: #0078d7;
-    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
     border: none;
-    border-radius: 4px;
+    background-color: var(--accent-color);
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
     cursor: pointer;
+    transition: background-color 0.2s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-button:hover {
-    background-color: #005fa3;
+.controls button:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-1px);
 }
 
-/* Progress Bars */
+.controls button:disabled {
+    background-color: var(--text-secondary);
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* =========================================
+   6. PROGRESS BAR
+   ========================================= */
 #progress-container {
     width: 100%;
     max-width: 600px;
-    height: 20px;
-    background: #ddd;
-    border-radius: 10px;
-    margin-top: 1rem;
+    height: 12px;
+    background: var(--border-color);
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
     overflow: hidden;
-    display: none;
+    display: none; /* Hidden by default */
 }
 
 #progress-bar {
     height: 100%;
     width: 0%;
-    background: #0078d7;
-    transition: width 0.2s ease;
+    background: var(--accent-color);
+    transition: width 0.4s cubic-bezier(0.4, 1, 0.75, 0.9);
 }
 
+#time-estimate {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+    text-align: center;
+    display: block;
+}
+
+/* =========================================
+   7. OUTPUT BOX
+   ========================================= */
 #output {
     width: 100%;
     max-width: 800px;
-    margin-top: 1rem;
-    background: white;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 0 8px rgba(0,0,0,0.1);
-    white-space: pre-wrap;
+    background: var(--container-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    
+    /* CRITICAL FOR TEXT FORMATTING */
+    white-space: pre-wrap; 
     word-wrap: break-word;
+    line-height: 1.7;
+    font-size: 1.05rem;
+    
+    /* Start hidden until content arrives */
+    min-height: 50px; 
+}
+
+/* =========================================
+   8. DARK MODE TOGGLE BUTTON
+   ========================================= */
+.theme-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background-color: var(--container-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+.theme-btn:hover {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+
+/* =========================================
+   9. MOBILE RESPONSIVENESS
+   ========================================= */
+@media (max-width: 600px) {
+    .controls {
+        flex-direction: column;
+    }
+    
+    .controls select, .controls button {
+        width: 100%;
+    }
+
+    .theme-btn {
+        top: 10px;
+        left: 10px;
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+
+    .container {
+        padding-top: 60px;
+    }
 }
