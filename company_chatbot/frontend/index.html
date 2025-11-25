@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Wiki</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="icon" type="image/png" href="chatbot_ico.png" />
+</head>
+
+<body>
+    <button class="theme-btn">🌙 Dark Mode</button>
+
+    <div class="container">
+        <h1>Company Knowledge Base</h1>
+
+        <!-- Chat History Area -->
+        <div id="chat-box" class="chat-box">
+            <div class="message bot-message">
+                <div class="bubble">Hello! I am the company wiki bot. Ask me about sick leave, remote work, or expenses.</div>
+            </div>
+        </div>
+
+        <!-- Loading Indicator -->
+        <div id="typing-indicator" class="typing-indicator">Thinking...</div>
+
+        <!-- Input Controls -->
+        <div class="input-area controls">
+            <input type="text" id="user-input" placeholder="Type your question here..." autocomplete="off">
+            <button onclick="sendMessage()" id="send-btn">Send</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+## Company Philosophy
+TechCorp believes in "radical transparency" and "sustainable pace." We do not believe in crunch time. If you are working past 6 PM, you are doing it wrong.
+
+## Remote Work Policy
+Employees are allowed to work remotely 3 days a week. Tuesdays and Thursdays are "Core Days" where everyone is expected to be in the office (or on the company Discord) between 10 AM and 2 PM.
+
+## Vacation & Leave
+- **Standard Leave:** All employees start with 20 days of paid time off (PTO).
+- **Tenure Bonus:** For every year you stay, you gain 1 extra day, capped at 30 days total.
+- **Sick Leave:** You have unlimited sick leave, but if you take more than 3 consecutive days, a doctor's note is required.
+
+## Expense Policy
+- **Meals:** Travel meals are capped at $50 per day.
+- **Equipment:** Every new hire gets a $2,000 budget for a laptop and a $500 budget for home office setup (chair, monitor, etc.).
+- **Approval:** Expenses under $50 do not require manager approval.
+
+## IT Support
+If you are locked out of your account, do NOT email the CEO. Create a ticket at support.techcorp.com. Password resets typically take 4 hours.
