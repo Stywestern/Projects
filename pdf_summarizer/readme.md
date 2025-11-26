@@ -1,5 +1,3 @@
-(python version = 3.12.9)
-
 # PDF Summarizer with Local LLMs & Streaming
 
 A full-stack application that ingests PDF documents, splits them into manageable chunks, and uses various LLM strategies (Map-Reduce) to generate concise summaries. Features real-time streaming progress updates.
